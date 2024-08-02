@@ -6,7 +6,8 @@
     "test": "jest --watchAll --verbose",
     "start": "node index.js",
     "dev": "nodemon -L index.js",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "setup-db": "node database/setup.js"
   },
   "keywords": [],
   "author": "",
