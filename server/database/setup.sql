@@ -1,14 +1,14 @@
 DROP TABLE IF EXISTS diary;
 
 CREATE TABLE diary (
-    id SERIAL PRIMARY KEY,     -- Unique identifier for each entry
-    entry_date DATE NOT NULL,        -- Date of the diary entry
-    title VARCHAR(255),              -- Title of the entry
-    content TEXT NOT NULL,           -- Content of the entry
-    mood VARCHAR(50),                -- Mood associated with the entry
-    tags VARCHAR(255)[],             -- Array of tags for categorization
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Timestamp of creation
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  -- Timestamp of last update
+    id SERIAL PRIMARY KEY,
+    entry_date DATE NOT NULL,
+    title VARCHAR(255),
+    content TEXT NOT NULL,
+    mood VARCHAR(50),
+    tags VARCHAR(255)[],
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
