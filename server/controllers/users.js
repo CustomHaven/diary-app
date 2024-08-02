@@ -1,10 +1,10 @@
-const Diary = require("../models/Diary");
+const User = require("../models/User");
 
 
 async function index(req, res) {
     try {
-        const diaries = await Diary.getAll();
-        res.status(200).json(diaries);
+        const users = await User.getAll();
+        res.status(200).json(users);
     } catch (error) {
         res.status(404).json({ error: error.message });
     }
@@ -13,8 +13,8 @@ async function index(req, res) {
 async function show(req, res) {
   try {
       const id = req.params.id;
-      const diary = await Diary.show(parseInt(id));
-      res.status(200).json(diary);
+      const country = await User.show(parseInt(id));
+      res.status(200).json(country);
   } catch (error) {
       res.status(404).json({ error: error.message });
   }
@@ -23,8 +23,8 @@ async function show(req, res) {
 async function create(req, res) {
     try {
         const data = req.body;
-        const newDiary = await Diary.create(data);
-        res.status(201).send(newDiary);
+        const newUser = await User.create(data);
+        res.status(201).send(newUser);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
@@ -34,8 +34,8 @@ async function update(req, res) {
     try {
         const id = req.params.id;
         const data = req.body;
-        const diary = await Diary.show(parseInt(id));
-        const result = await diary.update(data);
+        const user = await User.show(parseInt(id));
+        const result = await user.update(data);
         res.status(200).json(result);
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -45,8 +45,8 @@ async function update(req, res) {
 async function destroy(req, res) {
     try {
         const id = req.params.id;
-        const diary = await Diary.show(parseInt(id));
-        await diary.destroy();
+        const user = await User.show(parseInt(id));
+        await user.destroy();
         res.sendStatus(204);
     } catch (error) {
         res.status(404).json({ error: error.message });

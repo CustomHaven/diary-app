@@ -3,16 +3,18 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     user_id INT GENERATED ALWAYS AS IDENTITY,
-    email VARCHAR(75) NOT NULL,
-    username VARCHAR(25) NOT NULL,
+    email VARCHAR(75) NOT NULL UNIQUE,
+    username VARCHAR(25) NOT NULL UNIQUE,
     password VARCHAR(65) NOT NULL,
     admin BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (user_id)
 );
 
 CREATE TABLE diary (
     diary_id INT GENERATED ALWAYS AS IDENTITY,
-    entry_date DATE NOT NULL,
+    entry_date DATE NOT NULL UNIQUE,
     title VARCHAR(255),
     content TEXT NOT NULL,
     mood VARCHAR(50),
